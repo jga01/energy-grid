@@ -1,0 +1,48 @@
+body {
+    font-family: sans-serif; text-align: center; padding: 20px; background-color: #333; color: #eee;
+    display: flex; flex-direction: column; align-items: center; min-height: 100vh; box-sizing: border-box;
+}
+h1 { margin-bottom: 20px; }
+
+#stash-display {
+    background-color: #444; padding: 8px 15px; border-radius: 5px; margin-bottom: 25px;
+    font-size: 1.1em; border: 1px solid #666; min-width: 150px;
+}
+#stash-amount { font-weight: bold; color: #ffeb3b; }
+
+.button-container { margin-bottom: 15px; width: 85%; max-width: 320px; }
+
+.action-button {
+    padding: 20px 15px; font-size: 1.2em; cursor: pointer; border: none; border-radius: 10px;
+    color: white; width: 100%; transition: background-color 0.1s ease, transform 0.1s ease;
+    user-select: none; -webkit-tap-highlight-color: transparent; display: flex; justify-content: center;
+    align-items: center; position: relative;
+}
+
+#generate-button { background-color: #4CAF50; }
+#generate-button:not(:disabled):active,
+#generate-button.active { background-color: #367c39; transform: scale(0.98); }
+
+.special-action { background-color: #00bcd4; /* Teal */ }
+.special-action:not(:disabled):active,
+.special-action.active { background-color: #0097a7; transform: scale(0.98); }
+
+.emergency-action {
+    background-color: #ff9800; /* Orange for emergency */
+}
+.emergency-action:not(:disabled):active,
+.emergency-action.active {
+    background-color: #f57c00; /* Darker Orange */
+    transform: scale(0.98);
+}
+
+.steal-action { background-color: #f44336; /* Red for steal */ }
+.steal-action:not(:disabled):active,
+.steal-action.active { background-color: #d32f2f; transform: scale(0.98); }
+
+.cooldown-timer { font-size: 0.8em; margin-left: 8px; font-weight: normal; color: #eee; }
+
+.action-button:disabled { background-color: #777; cursor: not-allowed; color: #bbb; transform: none; }
+.action-button:disabled .cooldown-timer { color: #bbb; }
+
+#controller-status { margin-top: 20px; color: #ccc; font-size: 1.1em; min-height: 1.3em; }

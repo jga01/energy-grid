@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Power Grid Display</title>
+    <link rel="stylesheet" href="/css/display.css"> <!-- Link the CSS -->
+</head>
+<body>
+    <h1>Power Grid Status</h1>
+    <div class="grid-container">
+        <div id="energy-bar-container">
+            <div id="energy-bar"></div>
+        </div>
+        <div id="energy-level-text">--%</div>
+        <div id="status-text">Connecting...</div>
+    </div>
+
+    <!-- Socket.IO client library - automatically served by Socket.IO -->
+    <script src="/socket.io/socket.io.js"></script>
+    <!-- Your display logic -->
+    <script src="/js/display.js"></script>
+</body>
+</html>

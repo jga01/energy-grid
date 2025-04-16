@@ -1,0 +1,157 @@
+body {
+    font-family: sans-serif;
+    text-align: center;
+    background-color: #222;
+    color: #eee;
+    padding-bottom: 100px; /* Add padding to bottom to ensure button isn't cut off */
+    margin: 0; /* Remove default body margin */
+}
+
+/* Event Alert Styling */
+#event-alert {
+    padding: 10px 20px;
+    margin: 15px auto; /* Space above/below */
+    border-radius: 5px;
+    font-size: 1.3em;
+    font-weight: bold;
+    max-width: 400px; /* Limit width */
+    display: none; /* Hidden by default */
+    border: 2px solid; /* Base border */
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+.event-active { /* Base style when active */
+    /* Add transition if desired */
+}
+.event-surge { /* Demand Surge specific style */
+    background-color: #ffcdd2; /* Light red background */
+    color: #b71c1c; /* Dark red text */
+    border-color: #ef5350; /* Red border */
+}
+.event-efficiency { /* Efficiency Drive specific style */
+    background-color: #c8e6c9; /* Light green background */
+    color: #1b5e20; /* Dark green text */
+    border-color: #66bb6a; /* Green border */
+}
+/* End Event Alert Styling */
+
+
+h1 {
+    color: #00bcd4; /* Example title color */
+    margin-top: 10px; /* Reduce top margin if event alert is above */
+    margin-bottom: 10px; /* Space below title */
+}
+
+.grid-container {
+    margin-top: 10px; /* Reduce top margin */
+    display: inline-block; /* Make container only as wide as its content */
+    padding: 20px;
+    background-color: #333; /* Optional background for the grid area */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+#energy-bar-container {
+    width: 150px;
+    height: 400px;
+    border: 3px solid #ccc;
+    margin: 0 auto 20px auto; /* Center horizontally, add bottom margin */
+    position: relative;
+    background-color: #444;
+    overflow: hidden; /* Hide overflow for bar */
+    display: flex; /* Added for alignment */
+    flex-direction: column; /* Added for alignment */
+    justify-content: flex-end; /* Align bar to bottom */
+    /* Add background for safe zone visual */
+    background-image: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.2) 0%, /* Transparent below safe zone */
+        rgba(0, 0, 0, 0.2) 40%, /* Start of safe zone slightly darker */
+        rgba(255, 255, 255, 0.05) 40%, /* Lighter inside safe zone */
+        rgba(255, 255, 255, 0.05) 70%, /* End of safe zone */
+        rgba(0, 0, 0, 0.2) 70%, /* Darker above safe zone */
+        rgba(0, 0, 0, 0.2) 100%
+    );
+    background-size: 100% 100%; /* Ensure gradient covers the container */
+}
+
+/* Optional: Add border lines for safe zone */
+#energy-bar-container::before,
+#energy-bar-container::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 2px; /* Line thickness */
+    background-color: rgba(255, 255, 255, 0.4); /* Line color */
+    z-index: 1; /* Above background gradient, below energy bar */
+}
+#energy-bar-container::before {
+    bottom: 70%; /* Position the top line at 70% from bottom */
+}
+#energy-bar-container::after {
+    bottom: 40%; /* Position the bottom line at 40% from bottom */
+}
+/* End Safe Zone Visuals */
+
+
+#energy-bar {
+    width: 100%;
+    height: 50%; /* Initial height */
+    background-color: lime;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transition: height 0.3s ease-out, background-color 0.3s ease;
+    z-index: 2; /* Ensure energy bar is above the guideline visuals */
+}
+
+#energy-level-text {
+    font-size: 2em;
+    font-weight: bold;
+    margin-top: 0; /* Adjust margin if needed */
+    margin-bottom: 10px;
+}
+
+#status-text {
+    font-size: 1.2em;
+    color: #aaa;
+    margin-top: 5px;
+    min-height: 1.5em; /* Prevent layout shift when text changes */
+}
+
+#coop-progress {
+    margin-top: 15px;
+    font-size: 1.1em;
+    color: #ddd;
+    min-height: 1.3em; /* Prevent layout shift */
+}
+
+/* Reset Button Styling */
+#reset-container {
+    width: 100%; /* Take full width for centering purposes */
+    text-align: center; /* Center the button inside */
+    margin-top: 40px; /* Add space above the button */
+    padding-bottom: 20px; /* Add space below the button */
+    position: relative; /* Needed if you want absolute positioning inside */
+}
+
+#reset-button {
+    padding: 12px 25px; /* Adjust padding */
+    font-size: 1.1em; /* Adjust font size */
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: #00bcd4; /* Use a theme color */
+    color: #222; /* Dark text on light button */
+    font-weight: bold;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+#reset-button:hover {
+    background-color: #0097a7; /* Darker shade on hover */
+}
+
+#reset-button:active {
+    transform: scale(0.98); /* Slight shrink effect on click */
+}
+/* End Reset Button Styling */
