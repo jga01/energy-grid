@@ -29,7 +29,7 @@ module.exports = {
   STEAL_COOLDOWN_MS: 10000, // Cooldown for stealing (10 seconds)
   STASH_WIN_TARGET: 25, // Energy needed in personal stash to win
 
-  // mergency Adjustment Action +++
+  // Emergency Adjustment Action
   EMERGENCY_ADJUST_COOLDOWN_MS: 20000, // Cooldown for this action (20 seconds)
   EMERGENCY_BOOST_AMOUNT: 15, // Energy gained if used when < DANGER_LOW_THRESHOLD
   EMERGENCY_COOLANT_AMOUNT: 20, // Energy lost if used when > DANGER_HIGH_THRESHOLD

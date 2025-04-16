@@ -475,7 +475,6 @@ function resetGameLogic() {
   console.log("Game logic reset complete.");
 }
 
-// Export the functions needed by other modules (mainly websocketHandler)
 module.exports = {
   startGameLoop,
   stopGameLoop,
@@ -483,7 +482,7 @@ module.exports = {
   applyGenerate,
   applyStabilize,
   applyStealGrid,
-  applyEmergencyAdjust, // Export the new action function
+  applyEmergencyAdjust,
   broadcastGameState: null,
   broadcastEventUpdate: null,
   broadcastStabilizeUpdate: null,

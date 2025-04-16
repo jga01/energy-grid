@@ -40,7 +40,6 @@ const gameState = {
     console.log("GameState reset complete.");
   },
 
-  // Example: Method to add a player
   addPlayer: function (player) {
     if (player && player.id) {
       this.players[player.id] = player;
@@ -52,7 +51,6 @@ const gameState = {
     }
   },
 
-  // Example: Method to remove a player
   removePlayer: function (playerId) {
     if (this.players[playerId]) {
       delete this.players[playerId];
@@ -64,12 +62,10 @@ const gameState = {
     }
   },
 
-  // Method to get a player safely
   getPlayer: function (playerId) {
     return this.players[playerId];
   },
 
-  // Method to set the game over state
   setGameOver: function (reason, winnerId = null) {
     if (!this.gameIsRunning) return false; // Already over
     this.gameIsRunning = false;
@@ -80,7 +76,6 @@ const gameState = {
     return true; // Indicate game was successfully ended
   },
 
-  // Method to get current state snapshot (excluding players map for brevity in broadcasts)
   getCurrentSnapshot: function (configRef) {
     // Renamed config to configRef to avoid conflict if config is ever added to gameState itself
     return {

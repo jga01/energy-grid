@@ -18,12 +18,10 @@ resetButton.id = "reset-button";
 resetButton.textContent = "Play Again?";
 resetButton.style.display = "none";
 resetButtonContainer.appendChild(resetButton);
-// +++ NEW: Add event alert to UI +++
 eventAlert.id = "event-alert";
 eventAlert.style.display = "none"; // Initially hidden
 
 if (gridContainer) {
-  // +++ Insert event alert above the energy bar +++
   gridContainer.parentNode.insertBefore(eventAlert, gridContainer);
   gridContainer.appendChild(coopProgressText);
   gridContainer.parentNode.insertBefore(
@@ -66,22 +64,22 @@ socket.on("gameStateUpdate", (data) => {
 
     // Status text logic remains same...
     if (level < DANGER_LOW_THRESHOLD) {
-      /* ... */ energyBar.style.backgroundColor = "blue";
+      energyBar.style.backgroundColor = "blue";
       statusText.textContent = "Dangerously Low!";
     } else if (level < SAFE_ZONE_MIN) {
-      /* ... */ energyBar.style.backgroundColor = "lightblue";
+      energyBar.style.backgroundColor = "lightblue";
       statusText.textContent = "Low Power";
     } else if (level >= SAFE_ZONE_MIN && level <= SAFE_ZONE_MAX) {
-      /* ... */ energyBar.style.backgroundColor = "lime";
+      energyBar.style.backgroundColor = "lime";
       statusText.textContent = "Stable";
     } else if (level > SAFE_ZONE_MAX && level < DANGER_HIGH_THRESHOLD) {
-      /* ... */ energyBar.style.backgroundColor = "orange";
+      energyBar.style.backgroundColor = "orange";
       statusText.textContent = "High Power";
     } else if (level >= DANGER_HIGH_THRESHOLD) {
-      /* ... */ energyBar.style.backgroundColor = "red";
+      energyBar.style.backgroundColor = "red";
       statusText.textContent = "Dangerously High!";
     } else {
-      /* ... */ energyBar.style.backgroundColor = "grey";
+      energyBar.style.backgroundColor = "grey";
       statusText.textContent = "Unknown State";
     }
   }
@@ -91,7 +89,6 @@ socket.on("gameStateUpdate", (data) => {
     data.coopWinTargetSeconds !== undefined &&
     data.coopWinProgressSeconds !== undefined
   ) {
-    /* ... coop progress update ... */
     const target = data.coopWinTargetSeconds;
     const progress = data.coopWinProgressSeconds;
     const progressPercent =
@@ -121,7 +118,6 @@ socket.on("gameStateUpdate", (data) => {
 
 // Listen for Game Over event
 socket.on("gameOver", (data) => {
-  /* ... game over logic ... */
   console.log("Game Over received:", data);
   statusText.style.color = "red";
   statusText.style.fontWeight = "bold";
@@ -160,7 +156,6 @@ socket.on("gameOver", (data) => {
 
 // Listen for Game Reset event
 socket.on("gameReset", () => {
-  /* ... game reset logic ... */
   console.log("Game Reset received");
   statusText.textContent = "Game Resetting... Waiting for state...";
   statusText.style.color = "#aaa";
@@ -175,7 +170,7 @@ resetButton.addEventListener("click", () => {
   socket.emit("requestReset");
 });
 
-// +++ NEW: Listen for Event Updates +++
+// --- Listen for Event Updates ---
 socket.on("eventUpdate", (eventData) => {
   console.log("Event Update:", eventData);
   updateEventAlert(eventData.type, eventData.endTime);
@@ -226,7 +221,6 @@ function updateEventAlert(type, endTime) {
 }
 
 socket.on("disconnect", () => {
-  /* ... disconnect logic ... */
   console.log("Disconnected from server (Display)");
   statusText.textContent = "Disconnected - Refresh Page";
   coopProgressText.textContent = "";
