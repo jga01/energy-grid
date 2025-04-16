@@ -11,7 +11,7 @@
   "description": "",
   "dependencies": {
     "eslint": "^9.24.0",
-    "express": "^5.1.0",
+    "express": "^4.18.2",
     "socket.io": "^4.8.1"
   }
 }
